@@ -15,7 +15,7 @@ try {
 		 * @param {number} index
 		 * @return {string}
 		 */
-		window.parsing(value, from, to, index) {
+		window.parsing = function(value, from, to, index) {
 			var result = '';
 
 			//문자일 때
