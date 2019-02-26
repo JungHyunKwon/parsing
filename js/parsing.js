@@ -15,7 +15,7 @@ try {
 		 * @param {number} index
 		 * @return {string}
 		 */
-		/*window.parsing = function(value, from, to, index) {
+		window.parsing = function(value, from, to, index) {
 			var result = '';
 
 			//문자일 때
@@ -35,22 +35,22 @@ try {
 			}
 
 			return result;
-		};*/
+		};
 
 		/**
-		 * @name parsing
+		 * @name parsingAll
 		 * @since 2017-12-06
 		 * @param {string} value
 		 * @param {string} from
 		 * @param {string} to
 		 * @return {array}
 		 */
-		window.parsing = function(value, from, to) {
+		window.parsingAll = function(value, from, to) {
 			var result = [];
 			
 			//문자일 때
 			if(typeof value === 'string' && typeof from === 'string' && typeof to === 'string') {
-				let fromIndex = 0,
+				var fromIndex = 0,
 					toIndex = 0,
 					startIndex = 0;
 				
