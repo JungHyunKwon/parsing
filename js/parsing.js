@@ -54,8 +54,7 @@ try {
 					toIndex = 0,
 					startIndex = 0;
 				
-				while(value.indexOf(from, fromIndex) > -1) {
-					fromIndex = value.indexOf(from, fromIndex);
+				while((fromIndex = value.indexOf(from, fromIndex)) > -1) {
 					startIndex = fromIndex + from.length;
 					toIndex = value.indexOf(to, startIndex);
 					
@@ -68,8 +67,6 @@ try {
 						});
 
 						fromIndex = toIndex + 1;
-					}else{
-						break;
 					}
 				}
 			}
