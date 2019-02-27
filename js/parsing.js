@@ -13,10 +13,10 @@ try {
 		 * @param {string} from
 		 * @param {string} to
 		 * @param {number} index
-		 * @return {string}
+		 * @return {object}
 		 */
 		window.parsing = function(value, from, to, index) {
-			var result = '';
+			var result = {};
 
 			//문자일 때
 			if(typeof value === 'string') {
@@ -29,7 +29,9 @@ try {
 					
 					//문자가 있을 때
 					if(toIndex > -1) {
-						result = value.substring(startIndex, toIndex);
+						result.value = value.substring(startIndex, toIndex);
+						result.fromIndex = startIndex;
+						result.toIndex = toIndex;
 					}
 				}
 			}
