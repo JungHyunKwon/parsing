@@ -15,7 +15,7 @@ try {
 		 * @param {number} index
 		 * @return {object}
 		 */
-		window.parsing = function(value, from, to, index) {
+		function _parsing(value, from, to, index) {
 			var result = {};
 
 			//문자일 때
@@ -37,7 +37,9 @@ try {
 			}
 
 			return result;
-		};
+		}
+		
+		window.parsing = _parsing;
 
 		/**
 		 * @name parsingAll
@@ -52,21 +54,15 @@ try {
 			
 			//문자일 때
 			if(typeof value === 'string' && typeof from === 'string' && typeof to === 'string') {
-				var fromIndex = 0,
-					toIndex = 0,
-					startIndex = 0;
-				
-				while((fromIndex = value.indexOf(from, fromIndex)) > -1) {
-					startIndex = fromIndex + from.length;
-					toIndex = value.indexOf(to, startIndex);
-					
+                var fromIndex = 0,
+					parsing = {};
+
+				while((fromIndex = (parsing = _parsing(value, from, to, fromIndex)).fromIndex) > -1) {
+					var toIndex = parsing.toIndex;
+
 					//값이 있을 때
 					if(toIndex > -1) {
-						result.push({
-							value : value.substring(startIndex, toIndex),
-							fromIndex : startIndex,
-							toIndex : toIndex
-						});
+						result.push(parsing);
 
 						fromIndex = toIndex + 1;
 					}
