@@ -7,7 +7,7 @@ try {
 		'use strict';
 
 		/**
-		 * @name parsing
+		 * @name 파싱
 		 * @since 2017-12-06
 		 * @param {string} value
 		 * @param {string} from
@@ -39,6 +39,9 @@ try {
 			return result;
 		}
 		
+		/**
+		 * @description 파싱을 사용자에게 제공합니다.
+		 */
 		window.parsing = _parsing;
 
 		/**
@@ -55,14 +58,14 @@ try {
 			//문자일 때
 			if(typeof value === 'string' && typeof from === 'string' && typeof to === 'string') {
                 var fromIndex = 0,
-					parsing = {};
+					parsingResult = {};
 
-				while((fromIndex = (parsing = _parsing(value, from, to, fromIndex)).fromIndex) > -1) {
-					var toIndex = parsing.toIndex;
+				while((fromIndex = (parsingResult = _parsing(value, from, to, fromIndex)).fromIndex) > -1) {
+					var toIndex = parsingResult.toIndex;
 
 					//값이 있을 때
 					if(toIndex > -1) {
-						result.push(parsing);
+						result.push(parsingResult);
 
 						fromIndex = toIndex + 1;
 					}
